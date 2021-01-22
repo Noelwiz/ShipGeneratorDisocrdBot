@@ -1,0 +1,1 @@
+﻿bot token goes here. paste bot token from discord bot user here.
