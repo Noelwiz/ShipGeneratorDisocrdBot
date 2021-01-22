@@ -1,2 +1,2 @@
 # ShipGeneratorDisocrdBot
-This is a ship generator for a friend!
+This is a ship generator for a friend! Hi!
