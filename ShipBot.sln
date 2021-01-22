@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipBot.Core", "ShipBot.Core\ShipBot.Core.csproj", "{739AA6D5-6063-4878-843D-6DF7BA15D10D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipBot.Tests", "ShipBot.Tests\ShipBot.Tests.csproj", "{5E7C5B88-7834-45A4-BC3D-A9819998BA99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{739AA6D5-6063-4878-843D-6DF7BA15D10D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{739AA6D5-6063-4878-843D-6DF7BA15D10D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{739AA6D5-6063-4878-843D-6DF7BA15D10D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{739AA6D5-6063-4878-843D-6DF7BA15D10D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7C5B88-7834-45A4-BC3D-A9819998BA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7C5B88-7834-45A4-BC3D-A9819998BA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7C5B88-7834-45A4-BC3D-A9819998BA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7C5B88-7834-45A4-BC3D-A9819998BA99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DD68675-9316-423A-B012-6436918C0C67}
+	EndGlobalSection
+EndGlobal
