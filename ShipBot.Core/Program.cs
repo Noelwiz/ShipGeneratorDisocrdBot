@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using Discord;
+using Discord.Commands;
 using Discord.WebSocket;
 
 namespace ShipBot.Core
@@ -13,6 +14,9 @@ namespace ShipBot.Core
     class Program
     {
 
+        private DiscordSocketClient _client;
+        private readonly CommandService _commands;
+
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -23,15 +27,18 @@ namespace ShipBot.Core
         {
             _client = new DiscordSocketClient();
 
-            _client.Log += Log;
-            
+            _client.Log += Log; 
+
             var token = File.ReadAllText("./../../../bottoken.txt");
 
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
 
+
             // Block this task until the program is closed.
             await Task.Delay(-1);
+
+            await _client.LogoutAsync();
         }
 
 
@@ -42,7 +49,7 @@ namespace ShipBot.Core
         }
 
 
-        private DiscordSocketClient _client;
+ 
 
 
     }
