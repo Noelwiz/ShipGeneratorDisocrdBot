@@ -6,7 +6,7 @@ namespace ShipBot.Core
 {
     class Character
     {
-        public Character(string name, int discordUser, string race = null, string description = null)
+        public Character(string name, ulong discordUser, string race = null, string description = null)
         {
             Name = name;
             DiscordUser = discordUser;
@@ -16,7 +16,7 @@ namespace ShipBot.Core
 
         string Name { get; set; }
 
-        int DiscordUser { get; set;  }
+        ulong DiscordUser { get; set; }
 
         string Race { get; set; }
 
