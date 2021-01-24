@@ -31,10 +31,6 @@ namespace ShipBot.Core
                 // How much logging do you want to see?
                 LogLevel = LogSeverity.Info,
 
-                // If you or another service needs to do anything with messages
-                // (eg. checking Reactions, checking the content of edited/deleted messages),
-                // you must set the MessageCacheSize. You may adjust the number as needed.
-                //MessageCacheSize = 50,
 
                 // If your platform doesn't have native WebSockets,
                 // add Discord.Net.Providers.WS4Net from NuGet,
@@ -43,7 +39,6 @@ namespace ShipBot.Core
             });
 
 
-            //todo: figure out if this works
             _commands = new CommandService(new CommandServiceConfig
             {
                 // Again, log level:
@@ -85,10 +80,5 @@ namespace ShipBot.Core
             Console.WriteLine(msg.ToString());
             return Task.CompletedTask;
         }
-
-
- 
-
-
     }
 }
