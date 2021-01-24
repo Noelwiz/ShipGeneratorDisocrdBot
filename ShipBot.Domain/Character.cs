@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShipBot.Core
+namespace ShipBot.Domain
 {
-    class Character
+    public class Character
     {
         public Character(string name, ulong discordUser, string race = null, string description = null)
         {

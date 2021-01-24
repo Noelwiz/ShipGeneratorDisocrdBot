@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShipBot.Core", "ShipBot.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShipBot.Tests", "ShipBot.Tests\ShipBot.Tests.csproj", "{5E7C5B88-7834-45A4-BC3D-A9819998BA99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipBot.DataAccsess", "ShipBot.DataAccsess\ShipBot.DataAccsess.csproj", "{21FCE948-931B-4648-8F0E-ECFA798D4342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShipBot.DataAccsess", "ShipBot.DataAccsess\ShipBot.DataAccsess.csproj", "{21FCE948-931B-4648-8F0E-ECFA798D4342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipBot.Domain", "ShipBot.Domain\ShipBot.Domain.csproj", "{CF56133E-9BE1-49C9-9A63-4569188A153B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{21FCE948-931B-4648-8F0E-ECFA798D4342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21FCE948-931B-4648-8F0E-ECFA798D4342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21FCE948-931B-4648-8F0E-ECFA798D4342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF56133E-9BE1-49C9-9A63-4569188A153B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF56133E-9BE1-49C9-9A63-4569188A153B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF56133E-9BE1-49C9-9A63-4569188A153B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF56133E-9BE1-49C9-9A63-4569188A153B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

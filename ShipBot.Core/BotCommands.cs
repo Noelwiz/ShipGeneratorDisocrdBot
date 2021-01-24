@@ -7,6 +7,8 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
+using ShipBot.DataAccsess;
+using ShipBot.Domain;
 
 namespace ShipBot.Core
 {
@@ -39,7 +41,7 @@ namespace ShipBot.Core
             var servicecollection = new ServiceCollection();
 
             //add services here
-            servicecollection.AddSingleton<ShipRepository>();
+            servicecollection.AddSingleton<IShipRepository, ShipRepository>();
             
 
             return servicecollection.BuildServiceProvider();
@@ -169,13 +171,3 @@ namespace ShipBot.Core
     }
 }
 
-
-
-
-
-
-
-
-
-
-}

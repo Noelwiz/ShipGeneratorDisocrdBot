@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShipBot.Core
+namespace ShipBot.Domain
 {
-    interface ShipRepository
+    public interface IShipRepository
     {
         public Character GetRandomCharacter();
-
-
     }
 }
