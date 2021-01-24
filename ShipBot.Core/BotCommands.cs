@@ -108,10 +108,6 @@ namespace ShipBot.Core
             var context = new SocketCommandContext(_client, message);
 
 
-            //todo: delte
-            await message.Channel.SendMessageAsync("hi " + message.Author.Mention);
-
-
             _ = _client.SetGameAsync("Shipping");
 
             // Execute the command with the command context we just
