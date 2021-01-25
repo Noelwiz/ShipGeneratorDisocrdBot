@@ -8,9 +8,9 @@ namespace ShipBot.DataAccsess
 {
     public class ShipRepository : IShipRepository
     {
-        public Character GetRandomCharacter()
+        Domain.Character IShipRepository.GetRandomCharacter()
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }
