@@ -16,8 +16,5 @@ namespace ShipBot.Core.CommandModules
         {
 			return ReplyAsync(echo);
 		}
-
-
-		// ReplyAsync is a method on ModuleBase 
 	}
 }

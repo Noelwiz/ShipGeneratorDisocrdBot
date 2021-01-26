@@ -42,5 +42,91 @@ namespace ShipBot.DataAccsess
 
             return dbchar.Convert();
         }
+
+
+
+        public bool AddCharacter(string name, ulong owner)
+        {
+            Character newc = _context.Characters.FirstOrDefault(c => c.Name == name);
+
+            if(newc != null)
+            {
+                return false;
+            }
+
+            newc = new Character();
+            newc.Name = name;
+
+            string ownerID = owner.ToString();
+
+            Owner DBOwner = _context.Owners.Find(ownerID);
+            if(DBOwner == null)
+            {
+                DBOwner = new Owner();
+                DBOwner.DiscordUser = ownerID;
+                _context.Add(DBOwner);
+            }
+
+            newc.Owner = owner.ToString();
+            newc.OwnerNavigation = DBOwner;
+            _context.SaveChanges();
+
+            return true;
+        }
+
+        public bool RemoveCharacter(int index)
+        {
+            var toremove = _context.Characters.Find(index);
+            var result = RemoveIfExists(toremove);
+            if (result)
+            {
+                Console.WriteLine($"Removed character at index {index}");
+            }
+
+            return result;
+        }
+
+        public bool RemoveCharacter(string charname)
+        {
+            var toremove = _context.Characters.FirstOrDefault(x => x.Name == charname);
+            var result = RemoveIfExists(toremove);
+            if (result)
+            {
+                Console.WriteLine($"Removed character, {charname}");
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Helper method to remove a character if exists
+        /// </summary>
+        /// <param name="c">The character to remove, or null.</param>
+        /// <returns>Bool indicating if it was removed.</returns>
+        private bool RemoveIfExists(Character c)
+        {
+            if (c != null)
+            {
+                _context.Characters.Remove(c);
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Domain.Character GetCharacter(string name)
+        {
+            var character = _context.Characters.FirstOrDefault(c => c.Name == name);
+
+            if( character != null)
+            {
+                return character.Convert();
+            } else
+            {
+                return null;
+            }
+        }
     }
 }

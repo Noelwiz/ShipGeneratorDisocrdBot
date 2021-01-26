@@ -42,8 +42,6 @@ namespace ShipBot.Core
 
             servicecollection.AddDbContext<ShipDbContext>();
 
-            servicecollection.AddSingleton<DiscordSocketClient>(client);
-
             //add services here
             servicecollection.AddSingleton<IShipRepository, ShipRepository>(  );
             

@@ -11,14 +11,10 @@ namespace ShipBot.Core.CommandModules
     public class GenerateShipCommand: ModuleBase<SocketCommandContext>
     {
         IShipRepository _Repo;
-        DiscordSocketClient _Client;
 
-
-        public GenerateShipCommand(IShipRepository shiprepo, DiscordSocketClient client)
+        public GenerateShipCommand(IShipRepository shiprepo)
         {
             _Repo = shiprepo;
-            _Client = client;
-
         }
 
         [Command("ship")]
@@ -32,7 +28,7 @@ namespace ShipBot.Core.CommandModules
             reply.Append(newship.character1.Name);
             if(newship.character1.DiscordUser != null)
             {
-                reply.Append(_Client.GetUser( (ulong) newship.character1.DiscordUser)?.Mention);
+                reply.Append(Context.Client.GetUser( (ulong) newship.character1.DiscordUser)?.Mention);
             }
 
             reply.Append(" x ");
@@ -40,7 +36,7 @@ namespace ShipBot.Core.CommandModules
             reply.Append(newship.character2.Name);
             if (newship.character2.DiscordUser != null)
             {
-                reply.Append(_Client.GetUser( (ulong) newship.character2.DiscordUser)?.Mention);
+                reply.Append(Context.Client.GetUser( (ulong) newship.character2.DiscordUser)?.Mention);
             }
 
 
