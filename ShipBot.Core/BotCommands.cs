@@ -25,7 +25,7 @@ namespace ShipBot.Core
         // Retrieve client and CommandService instance via ctor
         public BotCommands(DiscordSocketClient client, CommandService commands)
         {
-            _services = ConfigureServices();
+            _services = ConfigureServices(client);
             _commands = commands;
             _client = client;    
         }
@@ -36,12 +36,16 @@ namespace ShipBot.Core
         /// Creates a collection of services to be provided via dependency injection to command calls.
         /// </summary>
         /// <returns>An IServiceProvider with a collection of services for the program.</returns>
-        public IServiceProvider ConfigureServices()
+        public IServiceProvider ConfigureServices(DiscordSocketClient client)
         {
             var servicecollection = new ServiceCollection();
 
+            servicecollection.AddDbContext<ShipDbContext>();
+
+            servicecollection.AddSingleton<DiscordSocketClient>(client);
+
             //add services here
-            servicecollection.AddSingleton<IShipRepository, ShipRepository>();
+            servicecollection.AddSingleton<IShipRepository, ShipRepository>(  );
             
 
             return servicecollection.BuildServiceProvider();
@@ -99,7 +103,7 @@ namespace ShipBot.Core
             int argPos = 0;
 
             // Determine if the message is a command based on the prefix and make sure no bots trigger commands
-            if (!(message.HasCharPrefix('!', ref argPos) ||
+            if (!(message.HasCharPrefix('?', ref argPos) ||
                 message.HasMentionPrefix(_client.CurrentUser, ref argPos)) ||
                 message.Author.IsBot)
                 return;

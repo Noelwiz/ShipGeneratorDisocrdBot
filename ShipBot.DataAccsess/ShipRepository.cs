@@ -37,8 +37,8 @@ namespace ShipBot.DataAccsess
 
             do
             {
-                dbchar = _context.Characters.Find(_rng.Next(maxId));
-            } while (dbchar != null);
+                dbchar = _context.Characters.Find( (long) _rng.Next(maxId));
+            } while (dbchar == null);
 
             return dbchar.Convert();
         }

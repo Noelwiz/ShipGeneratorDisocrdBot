@@ -8,7 +8,13 @@ namespace ShipBot.DataAccsess
     {
         public static Domain.Character Convert(this DataAccsess.Character character)
         {
-            Domain.Character converted = new Domain.Character(character.Name, ulong.Parse(character.Owner), character.Race, character.Description);
+            ulong? user = null;
+            if (character.Owner != null && ! string.IsNullOrWhiteSpace(character.Owner))
+            {
+                user = ulong.Parse(character.Owner);
+            }
+
+            Domain.Character converted = new Domain.Character(character.Name, user, character.Race, character.Description);
 
             return converted;
         }

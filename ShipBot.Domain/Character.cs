@@ -6,7 +6,7 @@ namespace ShipBot.Domain
 {
     public class Character
     {
-        public Character(string name, ulong discordUser, string race = null, string description = null)
+        public Character(string name, ulong? discordUser, string race = null, string description = null)
         {
             Name = name;
             DiscordUser = discordUser;
@@ -14,12 +14,12 @@ namespace ShipBot.Domain
             Description = description;
         }
 
-        string Name { get; set; }
+        public string Name { get; set; }
 
-        ulong DiscordUser { get; set; }
+        public ulong? DiscordUser { get; set; } = null;
 
-        string Race { get; set; }
+        public string Race { get; set; }
 
-        string Description { get; set; }
+        public string Description { get; set; }
     }
 }

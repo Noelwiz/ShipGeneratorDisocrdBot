@@ -6,9 +6,9 @@ namespace ShipBot.Domain
 {
     public class Ship
     {
-        Character character1 { get; }
+        public Character character1 { get; }
 
-        Character character2 { get; }
+        public Character character2 { get; }
 
         public Ship(Character char1, Character char2)
         {
