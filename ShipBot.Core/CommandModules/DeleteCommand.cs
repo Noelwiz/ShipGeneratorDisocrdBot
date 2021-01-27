@@ -9,7 +9,7 @@ using ShipBot.Domain;
 
 namespace ShipBot.Core.CommandModules
 {
-    class DeleteCommand : ModuleBase<SocketCommandContext>
+    public class DeleteCommand : ModuleBase<SocketCommandContext>
     {
 
         IShipRepository _Repo;
@@ -22,7 +22,7 @@ namespace ShipBot.Core.CommandModules
 
 
         [Command("AdminRemove")]
-        [RequireUserPermission(Discord.GuildPermission.ManageMessages)]
+        [RequireUserPermission(GuildPermission.ManageMessages)]
         [Summary("Removes a character a character.")]
         public Task AdminRemove([Remainder] string CharacterName)
         {
@@ -40,7 +40,7 @@ namespace ShipBot.Core.CommandModules
 
         [Command("remove")]
         [Summary("Adds a character.")]
-        public Task Remove(IUser user, [Remainder][Summary("The text to echo")] string name)
+        public Task Remove([Remainder][Summary("The text to echo")] string name)
         {
             ulong? userid = Context.User.Id;
 
