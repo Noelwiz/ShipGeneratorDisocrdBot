@@ -69,6 +69,7 @@ namespace ShipBot.DataAccsess
 
             newc.Owner = owner.ToString();
             newc.OwnerNavigation = DBOwner;
+            _context.Add(newc);
             _context.SaveChanges();
 
             return true;

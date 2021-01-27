@@ -1,0 +1,5 @@
+﻿ dotnet ef dbcontext scaffold "Data Source=c:\Users\dppet\source\repos\ShipBot\ShipBot.DataAccsess\ShipDb.db;Version=3;" Microsoft.EntityFrameworkCore.SqlServer --startup-project <path-to-startup-project-folder> --force 
+
+
+ //this actually references the right ef core package
+ dotnet ef dbcontext scaffold "Data Source=c:\Users\dppet\source\repos\ShipBot\ShipBot.DataAccsess\ShipDb.db;" Microsoft.EntityFrameworkCore.Sqlite --startup-project ./ShipBot.DataAccsess
