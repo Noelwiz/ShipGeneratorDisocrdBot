@@ -18,8 +18,14 @@ https://discordpy.readthedocs.io/en/latest/discord.html
 
 ## Useful links
 https://docs.stillu.cc/index.html Discord.Net documentation
+
+
 https://discord.com/developers/docs/intro Discord API docs
+
+
 https://www.connectionstrings.com/sqlite/ SQLite connection string examples
+
+
 https://sqlitebrowser.org/ SQLite Browser, the tool I used for modifying the database
 
 
