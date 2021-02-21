@@ -26,6 +26,7 @@ namespace ShipBot.Core.CommandModules
         [Summary("Removes a character a character.")]
         public Task AdminRemove([Remainder] string CharacterName)
         {
+            CharacterName = CharacterName.Trim();
             var result =  _Repo.RemoveCharacter(CharacterName);
 
             if (result)
