@@ -94,7 +94,7 @@ namespace ShipBot.DataAccsess
             if (result)
             {
                 Console.WriteLine($"Removed character, {charname}");
-            }
+            } 
             return result;
         }
 
