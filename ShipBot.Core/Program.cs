@@ -1,9 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+using System.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ShipBot.Core
 {
@@ -13,72 +17,25 @@ namespace ShipBot.Core
     /// </summary>
     class Program
     {
-
-        private DiscordSocketClient _client;
-        private CommandService _commands;
-
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            new Program().MainAsync().GetAwaiter().GetResult();
+            // https://www.youtube.com/watch?v=GAOCe-2nXqc
+            var host = Host.CreateDefaultBuilder(args);
+
+            host.ConfigureServices(x =>
+               {
+                    //should be an interface but I don't care enough in this instance
+                    x.AddTransient<ShipBot>();
+               });
+            //hmmm, might need to pull in bot commands to configure.
+
+            var builthost = host.Build();
+
+            var botsrvc = ActivatorUtilities.CreateInstance<ShipBot>(builthost.Services);
+
+            botsrvc.RunBot().GetAwaiter().GetResult();
         }
 
-        public async Task MainAsync()
-        {
-
-            _client = new DiscordSocketClient(new DiscordSocketConfig
-            {
-                // How much logging do you want to see?
-                LogLevel = LogSeverity.Info,
-
-
-                // If your platform doesn't have native WebSockets,
-                // add Discord.Net.Providers.WS4Net from NuGet,
-                // add the `using` at the top, and uncomment this line:
-                //WebSocketProvider = WS4NetProvider.Instance
-            });
-
-
-            _commands = new CommandService(new CommandServiceConfig
-            {
-                // Again, log level:
-                LogLevel = LogSeverity.Info,
-
-                // There's a few more properties you can set,
-                // for example, case-insensitive commands.
-                CaseSensitiveCommands = false,
-            });
-
-            _client.Log += Log;
-            _commands.Log += Log;
-
-            //initialize commands
-            var CommandHandeler = new BotCommands(_client, _commands);
-
-            Task commandsReady = CommandHandeler.InstallCommandsAsync();
-
-            var token = File.ReadAllText("./../../../bottoken.txt");
-
-            await _client.LoginAsync(TokenType.Bot, token);
-
-            await commandsReady;
-
-            await _client.StartAsync();
-
-
-
-
-            // Block this task until the program is closed.
-            await Task.Delay(System.Threading.Timeout.Infinite);
-
-            await _client.LogoutAsync();
-        }
-
-
-        private Task Log(LogMessage msg)
-        {
-            Console.WriteLine(msg.ToString());
-            return Task.CompletedTask;
-        }
+       
     }
 }

@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using ShipBot.DataAccsess;
 using ShipBot.Domain;
 
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+
 namespace ShipBot.Core
 {
     class BotCommands
