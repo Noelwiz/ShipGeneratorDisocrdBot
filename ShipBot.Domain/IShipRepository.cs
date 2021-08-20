@@ -10,6 +10,10 @@ namespace ShipBot.Domain
 
         public Character GetCharacter(string name);
 
+        public IEnumerable<Character> GetCharacters();
+
+        public IEnumerable<Character> GetCharacters(ulong owner);
+
         public Ship GetRandomShip();
 
         public bool AddCharacter(string name, ulong owner);

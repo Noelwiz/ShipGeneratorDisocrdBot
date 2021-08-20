@@ -6,13 +6,16 @@ namespace ShipBot.Domain
 {
     public class Character
     {
-        public Character(string name, ulong? discordUser, string race = null, string description = null)
+        public Character(string name, ulong? discordUser, string race = null, string description = null, int id = -1)
         {
             Name = name;
             DiscordUser = discordUser;
             Race = race;
             Description = description;
+            Id = id;
         }
+
+        public int Id { get;set;  }
 
         public string Name { get; set; }
 

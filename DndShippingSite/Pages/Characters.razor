@@ -1,0 +1,50 @@
+﻿@page "/Characters"
+@using Microsoft.AspNetCore.Authorization
+@using ShipBot.Domain
+@attribute [Authorize]
+@inject HttpClient Http
+
+<h3>Characters</h3>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (CharacterList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Race</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ShipBot.Domain.Character character in CharacterList)
+            {
+                <tr>
+                    <td>@character.Id</td>
+                    <td>@character.Name</td>
+                    <td>@character.Race</td>
+                    <td>@character.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private ShipBot.Domain.Character[] CharacterList;
+
+    /*
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+    */
+
+}

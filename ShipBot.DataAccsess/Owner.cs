@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 #nullable disable
 
@@ -19,3 +20,6 @@ namespace ShipBot.DataAccsess
         public virtual ICollection<ShipRating> ShipRatings { get; set; }
     }
 }
+
+
+

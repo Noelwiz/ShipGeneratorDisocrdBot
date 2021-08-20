@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using ShipBot.Domain;
@@ -128,6 +129,17 @@ namespace ShipBot.DataAccsess
             {
                 return null;
             }
+        }
+
+        //todo: these
+        public IEnumerable<Domain.Character> GetCharacters()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Domain.Character> GetCharacters(ulong owner)
+        {
+            throw new NotImplementedException();
         }
     }
 }
