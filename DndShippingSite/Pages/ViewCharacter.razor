@@ -1,5 +1,4 @@
 ﻿@page "/Characters/ViewCharacter/{CharacterId}"
-@model DndShippingSite.ViewModels.CharacterViewModel
 @using Microsoft.AspNetCore.Components.Authorization
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
@@ -7,6 +6,16 @@
 <p>Hi!</p>
 
 <AuthorizeView>
+    <h1>Hello, @context.User.Identity.Name!</h1>
     <p>You can only see this content if you're authenticated.</p>
 </AuthorizeView>
 
+
+@code {
+    //https://www.learnrazorpages.com/razor-pages/routing 
+
+    private void SecureMethod() {
+        var x = 1;
+        x++;
+    }
+}
