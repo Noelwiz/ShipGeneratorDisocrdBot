@@ -23,6 +23,17 @@
 
 <p>@_surnameMessage</p>
 
+<br />
+
+<h1>Discord Log in</h1>
+
+<form action="https://discord.com/api/oauth2/authorize?client_id=878430311543889950&redirect_uri=https%3A%2F%2Flocalhost%3A5001%2F&response_type=code&scope=identify">
+    <input type="submit" value="Sign Into Discord" />
+</form>
+
+
+
+
 @code {
     private string _authMessage;
     private string _surnameMessage;

@@ -9,6 +9,8 @@ namespace DndShippingSite.Pages
 {
     public class ViewCharacterModel : PageModel
     {
+
+        
         public void OnGet()
         {
         }
