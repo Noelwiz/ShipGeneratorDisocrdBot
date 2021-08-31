@@ -63,7 +63,6 @@ namespace DndShippingSite
                                   {
                                       builder.WithOrigins("https://localhost",
                                             "127.0.0.1",
-                                            "https://virtual-clinic.azurewebsites.net",
                                             "http://localhost:5000",
                                             "http://localhost:5001",
                                             "https://discord.com/api/",
@@ -102,12 +101,18 @@ namespace DndShippingSite
                 'redirect_uri': REDIRECT_URI
              */
 
+            //TODO: https://docs.microsoft.com/en-us/aspnet/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 
+            //I think this would let us override the user claims types
+            //https://youtu.be/egITMrwMOPU?t=333 looks like we could use this to have a special discord user type and assign them roles
+            //using a db if we want to set one up for that
+            //services.AddIdentity()
 
             // https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/additional-claims?view=aspnetcore-5.0
             //see https://mauridb.medium.com/using-oauth2-middleware-with-asp-net-core-2-0-b31ffef58cd0
             services.AddAuthentication()
-                .AddOAuth("Discord", options =>
+                //consider: maybe just using the default oauth handler?
+                .AddOAuth<OAuthOptions, Areas.Identity.DiscordAuthenticationHandler> ("Discord", options =>
                 {
                     options.ClaimsIssuer = DiscordAuthDefaults.Issuer;
                     options.ClientId = Configuration["client_id"];
@@ -144,6 +149,7 @@ namespace DndShippingSite
                     //register events apparently
                     options.Events = new OAuthEvents
                     {
+                        //the main authentication event it seems like from the handler. Basically, if we want to handle this part of auth, we kinda can? or at least sub to the event.
                         OnCreatingTicket = async context =>
                         {
                             // Create the request message to get user data via the backchannel
@@ -191,7 +197,7 @@ namespace DndShippingSite
             services.AddRazorPages();
             services.AddServerSideBlazor();
             //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-            services.AddScoped<AuthenticationStateProvider, DiscordAuthProvider>();
+            services.AddScoped<AuthenticationStateProvider, FakeAuthProvider>();
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSingleton<WeatherForecastService>();
         }

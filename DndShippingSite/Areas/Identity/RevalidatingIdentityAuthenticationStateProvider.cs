@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace DndShippingSite.Areas.Identity
 {
-    /*
+    
     public class RevalidatingIdentityAuthenticationStateProvider<TUser>
         : RevalidatingServerAuthenticationStateProvider where TUser : class
     {
@@ -73,5 +73,5 @@ namespace DndShippingSite.Areas.Identity
             }
         }
     }
-    */
+    
 }
