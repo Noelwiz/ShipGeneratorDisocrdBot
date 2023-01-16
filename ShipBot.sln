@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShipBot.Core", "ShipBot.Core\ShipBot.Core.csproj", "{739AA6D5-6063-4878-843D-6DF7BA15D10D}"
 EndProject
@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShipBot.Tests", "ShipBot.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShipBot.DataAccsess", "ShipBot.DataAccsess\ShipBot.DataAccsess.csproj", "{21FCE948-931B-4648-8F0E-ECFA798D4342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipBot.Domain", "ShipBot.Domain\ShipBot.Domain.csproj", "{CF56133E-9BE1-49C9-9A63-4569188A153B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShipBot.Domain", "ShipBot.Domain\ShipBot.Domain.csproj", "{CF56133E-9BE1-49C9-9A63-4569188A153B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
