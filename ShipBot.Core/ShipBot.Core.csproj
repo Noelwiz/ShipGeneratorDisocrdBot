@@ -4,6 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <UserSecretsId>66cc630f-29e9-4f4f-85e8-8a4174313e3c</UserSecretsId>
+    <StartupObject>ShipBot.Core.Program</StartupObject>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>

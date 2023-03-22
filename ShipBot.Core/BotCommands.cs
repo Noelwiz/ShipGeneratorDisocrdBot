@@ -30,7 +30,7 @@ namespace ShipBot.Core
         {
             _services = ConfigureServices(client);
             _commands = commands;
-            _client = client;    
+            _client = client;
         }
 
 
@@ -47,23 +47,23 @@ namespace ShipBot.Core
 
             //add services here
             servicecollection.AddSingleton<IShipRepository, ShipRepository>(  );
-            
+
 
             return servicecollection.BuildServiceProvider();
         }
 
 
 
-        // https://docs.stillu.cc/guides/commands/intro.html 
+        // https://docs.stillu.cc/guides/commands/intro.html
         public async Task InstallCommandsAsync()
         {
             // Hook the MessageReceived event into our command handler
             _client.MessageReceived += HandleCommandAsync;
 
-            // Here we discover all of the command modules in the entry 
+            // Here we discover all of the command modules in the entry
             // assembly and load them. Starting from Discord.NET 2.0, a
             // service provider is required to be passed into the
-            // module registration method to inject the 
+            // module registration method to inject the
             // required dependencies.
             //
             // If you do not use Dependency Injection, pass null.
@@ -156,7 +156,7 @@ namespace ShipBot.Core
                 // Create a Command Context.
                 var context = new SocketCommandContext(_client, msg);
 
-                // Execute the command. (result does not indicate a return value, 
+                // Execute the command. (result does not indicate a return value,
                 // rather an object stating if the command executed successfully).
                 var result = await _commands.ExecuteAsync(context, pos, _services);
 
